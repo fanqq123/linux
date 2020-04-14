@@ -1,5 +1,11 @@
 # /proc/stat
 
+## 描述
+
+内核和系统的统计信息
+
+## 实例
+
 ![image-20200409220442515](E:\markdata\mybook\fanqq\images\image-20200409220442515.png)
 
 **CPU**
