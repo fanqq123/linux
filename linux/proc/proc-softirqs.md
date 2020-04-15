@@ -21,3 +21,12 @@ BLOCK_IOPOLL:          0          0
          RCU:  151819643  148507847
 ```
 
+- HI：最高优先级的软中断类型
+- TIMER：timer定时器的软中断
+- NET_TX: 发送网络数据包的软中断
+- NET_RX: 接收网络数据包的软中断
+- BLOCK: 快设备的软中断
+- TASKLET： 专门为 tasklet 机制准备的软中断
+- SCHED：进程调度以及负载均衡
+- HRTIMER：高精度定时器
+- RCU：专门为 RCU 服务的软中断
