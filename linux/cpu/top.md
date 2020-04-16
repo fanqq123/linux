@@ -29,7 +29,7 @@ top -hv|-bcHiOSs -d secs -n max -u|U user -p pid -o fld -w [cols]
 
 ## 实例
 
-![image-20200410171609305](E:\markdata\images\image-20200410171609305.png)
+![image-20200410171609305](..\..\images\image-20200410171609305.png)
 
 **第一行:系统正常运行时间和平均负载**
 
