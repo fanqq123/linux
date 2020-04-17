@@ -43,7 +43,9 @@
 -r		内存利用率统计信息
 -S		交换空间利用率统计信息
 -s		[hh：mm：ss]
-		设置数据的开始时间，使sar命令提取指定时间或之后指定时间标记的记录。默认开始时间为08:00:00，必		须以24小时格式给出，仅当从文件中读取数据时才可以使用此选项-f
+		设置数据的开始时间，使sar命令提取指定时间或之后指定时间标记的记录。
+		默认开始时间为08:00:00，必须以24小时格式给出，
+		仅当从文件中读取数据时才可以使用此选项-f
 -t		从每日数据文件中读取数据时，指示sar应该以数据文件创建者的原始本地时间显示时间戳
 -u		[ALL] 报告CPU利用率。ALL关键字指示应显示所有CPU字段
 -V		打印版本号，然后退出
@@ -69,7 +71,7 @@ IP6(IP6流)，EIP6(IP6流错误)，
 ICMP6(ICMP6流)，EICMP6(ICMP6流错误)
 ```
 
-### 1. 统计数据包、网卡流量
+### 统计数据包、网卡流量
 
 ```shell
 [root@localhost dev]# sar -n DEV 1 
@@ -88,7 +90,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 2020年04月10日 _x86_64_ (
 - txcmp/s    每秒传输的压缩数据包数
 - rxmcst/s   每秒收到的组播数据包数
 
-### 2. 网络设备故障统计信息
+### 网络设备故障统计信息
 
 ```shell
 [root@localhost dev]# sar -n EDEV 1 
@@ -110,7 +112,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月10日 	_x86_64_
 - rxfifo/s      每秒在接收到的数据包上发生的FIFO超限错误数
 - txfifo/s      每秒传输的数据包发生的FIFO超限错误数
 
-## CPU
+## **CPU**
 
 ```shell
 sar -u [ <时间间隔> [ <次数> ] ]
@@ -118,7 +120,7 @@ sar -P { cpu [,...] | ALL }
 sar -w 
 ```
 
-### 1. cpu利用率
+### cpu利用率
 
 **总利用率统计**
 
@@ -155,7 +157,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月10日 	_x86_64_
 - %guest   一个或多个CPU运行虚拟处理器所花费的时间百分比
 - %gnice   一个或多个CPU运行一个好的guest虚拟机所花费的时间百分比
 
-### 2 . 进程创建和上下文切换
+### 进程创建和上下文切换
 
 ```shell
 [root@localhost dev]# sar -w 1
@@ -172,7 +174,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月10日 	_x86_64_
 - proc/s		每秒创建的进程总数
 - cswch/s      每秒cpu上下文切换总数
 
-### 3. 进程数、平均负载
+### 进程数、平均负载
 
 ```shell
 [root@localhost dev]# sar -q 1
@@ -199,7 +201,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月10日 	_x86_64_
 sar -r [ <时间间隔> [ <次数> ] ]
 ```
 
-### 1. 内存统计信息
+### 内存统计信息
 
 ```shell
 [root@localhost dev]# sar -R 1
@@ -219,7 +221,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月10日 	_x86_64_
 
 **注解：**获取Linux 内存页大小的命令：`getconf PAGE_SIZE`
 
-### 2. 内存使用率
+### 内存使用率
 
 ```
 [root@localhost dev]# sar -r 1
@@ -243,13 +245,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月10日 	_x86_64_
 - kbinact                     不活动的内存量(单位：kb)
 - kbdirty                      等待写回磁盘的内存量(单位：kb)
 
-### 3. 交换分区统计信息
-
-```shell
-sar -W [ <时间间隔> [ <次数> ] ]
-```
-
-**实例：**
+### 交换分区统计信息
 
 ```shell
 [root@localhost dev]# sar -W 1
@@ -265,7 +261,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月10日 	_x86_64_
 - pswpin/s       每秒系统引入的交换页面总数
 - pswpout/s     每秒系统带出的交换页面总数
 
-### 4. 交换分区利用率
+### 交换分区利用率
 
 ```shell
 [root@localhost dev]# sar -S 1
@@ -284,7 +280,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月10日 	_x86_64_
 - kbswpcad          缓存的交换内存量
 - %swpcad           缓存的交换内存相对于已使用交换空间量的百分比
 
-### 5. 内存分页统计信息
+### 内存分页统计信息
 
 ```shell
 [root@localhost dev]# sar -B 1
@@ -308,12 +304,6 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月10日 	_x86_64_
 - %vmeff              以pgsteal / pgscan计算，这是页面回收效率的度量        
 
 ### 索引节点，文件和其他内核表的状态
-
-```shell
-sar -v [ <时间间隔> [ <次数> ] ]
-```
-
-**实例：**
 
 ```shell
 [root@localhost dev]# sar -v 1

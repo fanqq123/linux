@@ -42,7 +42,7 @@ Options are:
 
 ## 实例
 
-### 1. I/O统计信息
+### I/O统计信息
 
 ```json
 [root@localhost fanqq]# pidstat -d
@@ -67,7 +67,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月11日 	_x86_64_
 - kB_ccwr/s     任务已取消其写入磁盘的数据量（单位：kb）
 - Command     任务名称
 
-### 2. 内存利用率/页面错误数
+### 内存利用率/页面错误数
 
 ```json
 [root@localhost fanqq]# pidstat -r
@@ -89,7 +89,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月11日 	_x86_64_
 - RSS           长期内存使用，任务的不可交换物理内存的使用量（单位kb）
 - %MEM      进程使用的物理内存百分比
 
-### 3. 堆栈利用率
+### 堆栈利用率
 
 ```json
 [root@localhost fanqq]# pidstat -s
@@ -107,7 +107,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月11日 	_x86_64_
 - StkSize       为任务保留为堆栈的内存量（单位kb），但不一定使用
 - StkRef         任务引用的用作堆栈的内存量（单位kb）
 
-### 4. 任务关联线程信息
+### 任务关联线程信息
 
 ```json
 [root@localhost fanqq]# pidstat -t -C mysql
@@ -128,7 +128,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月11日 	_x86_64_
 - TGID		线程组负责人的标识号
 - TID          被监视线程的表示号
 
-### 5. cpu利用率
+### cpu利用率
 
 ```json
 [root@localhost fanqq]# pidstat -u 
@@ -145,7 +145,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月11日 	_x86_64_
 
 - CPU        表示正在运行这个任务的处理器编号，0号是第一个
 
-### 6. 上下文切换
+### 上下文切换
 
 ```json
 [root@localhost fanqq]# pidstat -w
@@ -163,7 +163,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月11日 	_x86_64_
 - cswch/s		每秒执行的任务的自愿上下文切换总数
 - nvcswch/s    每秒执行的任务的非自愿上下文切换总数
 
-### 7. 单个任务统计信息
+### 单个任务统计信息
 
 ```json
 [root@localhost fanqq]# pidstat -T TASK
@@ -180,7 +180,7 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月11日 	_x86_64_
 02时46分36秒     0        94    0.00    0.00    0.00    0.00     0  kauditd
 ```
 
-### 8. 任务及其所有子项的的全局统计信息
+### 任务及其所有子项的的全局统计信息
 
 ```json
 [root@localhost fanqq]# pidstat -T CHILD

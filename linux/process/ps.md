@@ -218,7 +218,7 @@ H			将线程显示为进程
 
 ## 实例
 
-### 1. 显示所有进程信息
+### 显示所有进程信息
 
 ```shell
 [root@localhost ~]# ps -A
@@ -232,7 +232,7 @@ H			将线程显示为进程
     10 ?        00:00:00 watchdog/0
 ```
 
-### 2. 显示指定用户进程信息
+### 显示指定用户进程信息
 
 ```shell
 [root@localhost ~]# ps -u root
@@ -247,7 +247,7 @@ H			将线程显示为进程
     12 ?        00:00:00 khelper
 ```
 
-### 3. 显示所以进程信息，连同命令行
+### 显示所以进程信息，连同命令行
 
 ```shell
 [root@localhost ~]# ps -ef
@@ -262,7 +262,7 @@ root         10      2  0 4月12 ?       00:00:00 [watchdog/0]
 root         12      2  0 4月12 ?       00:00:00 [khelper]
 ```
 
-### 4. ps 与grep 常用组合用法，查找特定进程
+### ps 与grep 常用组合用法，查找特定进程
 
 ```shell
 [root@localhost ~]# ps -ef|grep mysqld
@@ -270,7 +270,7 @@ mysql      1205      1  0 4月12 ?       00:02:25 /usr/sbin/mysqld
 root       4223   2309  0 00:02 pts/1    00:00:00 grep --color=auto mysqld
 ```
 
-### 5. 输出指定字段信息（例如进程启动时间）
+### 输出指定字段信息（例如进程启动时间）
 
 ```shell
 [root@localhost ~]# ps -C mysqld -o lstart|grep -v STARTED
@@ -281,13 +281,13 @@ Sun Apr 12 18:48:16 2020
 2020-04-12 18:48:16
 ```
 
-### 6. 查杀进程
+### 查杀进程
 
 ```shell
 ps -C mysqld -o pid=|xargs kill -9
 ```
 
-### 7. 列出目前所有的正在内存当中的程序
+### 列出目前所有的正在内存当中的程序
 
 ```shell
 [root@localhost ~]# ps -aux
@@ -307,7 +307,7 @@ root          9  0.0  0.0      0     0 ?        R    4月12   0:00 [rcu_sched]
 - START  进程启动时间
 - TIME   该 process 实际使用 CPU 运作的时间
 
-### 8. 以类似进程树的方式显示
+### 以类似进程树的方式显示
 
 ```shell
 [root@localhost ~]# ps -auxf
@@ -341,7 +341,7 @@ postfix    4171  0.0  0.1  92232  4128 ?        S    4月12   0:00  \_ pickup -l
   4171   2044   2044 ?        00:00:00     pickup
 ```
 
-### 9. 显示线程有关信息
+### 显示线程有关信息
 
 ```shell
 [root@localhost ~]# ps -eLf
@@ -368,7 +368,7 @@ mysql      1205      1   2147  0   38 4月12 ?       00:00:00 /usr/sbin/mysqld
 
 ```
 
-### 10. 仅显示PID为1的名称
+### 仅显示PID为1的名称
 
 ```shell
 [root@localhost ~]# ps -q 1 -o comm=

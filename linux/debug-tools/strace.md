@@ -25,7 +25,8 @@
 -ff		如果-o filename选项有效，则将每个进程跟踪写入filename.pid，其中pid是每个进程的数字进程ID
 -h		打印帮助摘要
 -i		在系统调用时打印指令指针
--q		禁止显示有关附加，分离等的消息。当输出重定向到文件并且直接运行命令而不是运行命令时，此消息自动发		生附加
+-q		禁止显示有关附加，分离等的消息。当输出重定向到文件并且直接运行命令而不是运行命令时，
+		此消息自动发生附加
 -qq		如果给出两次，则禁止显示有关进程退出状态的消息
 -r		在进入每个系统调用时打印一个相对时间戳。这记录了连续系统调用开始之间的时间差
 -t		在一天的时间前面加上跟踪的每一行
@@ -39,7 +40,8 @@
 -a		列在特定列中对齐返回值（默认列40）
 -e		expr一个限定表达式，它修改要跟踪的事件或如何跟踪它们的事件
 		表达式的格式为：[qualifier =] [！] value1 [，value2] ...
-		qualifier只能是 trace,abbrev,verbose,raw,signal,read,write其中之一，value是用来限定		  的符号或数字.默认的 qualifier是 trace.感叹号是否定符号，
+		qualifier只能是 trace,abbrev,verbose,raw,signal,read,write其中之一，
+		value是用来限定的符号或数字.默认的 qualifier是 trace.感叹号是否定符号，
 		例如: -e open等价于 -e trace=open,表示只跟踪open调用，而-e trace!=open表示跟踪除了			open以外的其他调用，有两个特殊的符号 all 和 none都没有明显的含义
 -e trace=file 只跟踪有关文件操作的系统调用. 
 -e trace=process 只跟踪有关进程控制的系统调用. 
@@ -51,19 +53,22 @@
 -e signal=set 指定跟踪的系统信号，默认为all，如 signal=!SIGIO(或者signal=!io),表示不跟踪SIGIO				  信号 
 -e read=set 输出从指定文件中读出的数据.例如: -e read=3,5 -e write=set 
 -o filename	将跟踪输出写入文件，如果使用-ff，则使用filename.pid
--O		开销将跟踪系统调用的开销设置为开销微秒。这对于覆盖默认启发式方法很有用，它可以猜测花费了多少时间
+-O		开销将跟踪系统调用的开销设置为开销微秒。
+		这对于覆盖默认启发式方法很有用，它可以猜测花费了多少时间
 -p pid	使用进程ID pid附加到进程并开始跟踪。跟踪可以随时通过键盘中断信号（CTRL-C）终止
 -P path	仅跟踪系统调用访问路径。多个-P选项可用于指定多个路径
 -s strsize	指定要打印的最大字符串大小（默认为32）
 -S sortby	按照指定的标准对-c选项打印的直方图的输出进行排序，可选值为time, calls, name
--u username	运行带有用户ID，组ID和用户名补充组的命令。该选项仅在以root用户身份运行时才有用，并且可以			正确执行setuid和/或setgid二进制文件。除非使用此选项，否则setuid和setgid程序将在没有有			   效特权的情况下执行
+-u username	运行带有用户ID，组ID和用户名补充组的命令。该选项仅在以root用户身份运行时才有用，
+			并且可以正确执行setuid和/或setgid二进制文件。除非使用此选项，
+			否则setuid和setgid程序将在没有有效特权的情况下执行
 -E var = val	在其环境变量列表中运行var = val的命令
--E var在将其传递给命令之前，从继承的环境变量列表中删除var
+-E var		在将其传递给命令之前，从继承的环境变量列表中删除var
 ```
 
 ## 实例
 
-### 1. 追踪vmstat命令数据来源
+### 追踪vmstat命令数据来源
 
 ```shell
 strace -e open vmstat
@@ -79,7 +84,7 @@ open("/proc/vmstat", O_RDONLY)          = 5
 
 > `open`是linux系统函数，通过上述例子我们可以看到`vmstat`展示的数据，其实是从`/proc/meminfo`，`stat`，`vmstat`文件里面读取的数据，加以处理以更直观的方式展现出来
 
-## 2. 程序因权限问题启动失败且无日志打印
+### 程序因权限问题启动失败且无日志打印
 
 ```shell
 strace -o trade.log ./statrtup.sh 
@@ -110,19 +115,19 @@ exit_group(1)
 
 > 追踪tomcat程序启动，可以检查查看到那些文件没有权限操作
 
-### 3. 追踪已启动程序系统调用
+### 追踪已启动程序系统调用
 
 ```shell
 strace -p PID
 ```
 
-### 4. 追踪进程子线程信息
+### 追踪进程子线程信息
 
 ```shell
 strace -f -o java.txt -p PID
 ```
 
-### 5. 计算每个系统调用的时间，调用和错误
+### 计算每个系统调用的时间，调用和错误
 
 ```shell
 % time     seconds  usecs/call     calls    errors syscall
