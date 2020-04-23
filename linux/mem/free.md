@@ -39,7 +39,7 @@ Mem:        3865524      591744     1888104       11912     1385676     2970948
 Swap:       4064252           0     4064252
 ```
 
-- **total**：总内存量（`/proc / meminfo`中的`MemTotal`和`SwapTotal`）
+- **total**：总内存量（`/proc/meminfo`中的`MemTotal`和`SwapTotal`）
 - **used**：已使用内存（ total - free - buffers - cache）
 - **free**：空闲的未使用内存（`/proc/meminfo`中的`MemFree`和`SwapFree`）
 - **shared**：共享内存（主要）由tmpfs使用
