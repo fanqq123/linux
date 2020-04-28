@@ -34,7 +34,7 @@
 
 ### 压测cpu
 
-```
+```shell
 stress	-c	1	
 ```
 
@@ -44,9 +44,9 @@ stress	-c	1
 
 ```
 
-## 压测磁盘、io
+### 压测磁盘、io
 
-```
-
+```shell
+stress -i 1 
 ```
 
