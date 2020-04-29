@@ -1,16 +1,14 @@
 # cachestat 
 
-## 描述
-
 计算缓存内核函数调用
 
-## 语法格式
+## 格式
 
 ```
 usage: cachestat [-h] [-T] [interval] [count]
 ```
 
-## 常用选项
+## 选项
 
 ```shell
 -h --help		显示此帮助消息并退出

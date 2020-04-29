@@ -1,10 +1,8 @@
 # sar
 
-## 描述
-
 收集，报告或保存系统活动信息。
 
-## 语法格式
+## 格式
 
 ```shell
 用法: sar [ 选项 ] [ <时间间隔> [ <次数> ] ]
@@ -17,7 +15,7 @@
 [ -i interval ] [ -s [ hh:mm:ss ] ] [ -e [ hh:mm:ss ] ] [ interval [ count ] ]
 ```
 
-## 常用选项
+## 选项
 
 ```shell
 -A		等效于指定-bBdHqrRSuvwWy -I SUM -I XALL -m ALL -n ALL -u ALL -P ALL

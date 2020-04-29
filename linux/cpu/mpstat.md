@@ -1,18 +1,16 @@
 # mpstat
 
-## 描述
-
 显示各个处理器相关的统计信息
 
 主要用于多CPU环境下，它显示各个可用CPU的状态信息。这些信息存放在`/proc/stat`文件中。在多CPU系统里，其不但能查看所有CPU的平均状况信息，而且能够查看特定CPU的信息
 
-## 语法格式
+## 格式
 
 ```shell
 mpstat [ -A ] [ -u ] [ -V ] [ -I { SUM | CPU | SCPU | ALL } ] [ -P { cpu [,...] | ON | ALL } ] [ interval [ count ] ]
 ```
 
-## 常用参数
+## 参数
 
 ```shell
 internal	相邻的两次采样的间隔时间

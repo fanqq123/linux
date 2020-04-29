@@ -1,10 +1,8 @@
 # strace
 
-## 描述
-
 跟踪系统调用和信号
 
-## 语法格式
+## 格式
 
 ```shell
 用法: strace [-CdffhiqrtttTvVxxy] [-I n] [-e expr]...
@@ -14,7 +12,7 @@
               -p pid... / [-D] [-E var=val]... [-u username] PROG [ARGS]
 ```
 
-## 常用参数
+## 参数
 
 ```shell
 -c		计算每个系统调用的时间，调用和错误，并在程序退出时报告摘要

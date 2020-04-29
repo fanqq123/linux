@@ -1,16 +1,14 @@
 # cachetop
 
-## 描述
-
 显示Linux页面高速缓存命中/未命中统计信息，包括每个读和写命中百分比
 
-## 语法格式
+## 格式
 
 ```shell
 usage: cachetop [-h] [interval]
 ```
 
-## 常用选项
+## 选项
 
 ```shell
 -h	--help		帮助

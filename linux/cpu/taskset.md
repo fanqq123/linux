@@ -1,20 +1,18 @@
 # taskset
 
-## 描述
-
 tasket用于设置或检索给定PID的运行进程的CPU亲和力，或使用给定的CPU亲和力启动新的COMMAND。
 
 CPU关联性是一个调度程序属性，可将进程“绑定”到系统上一组给定的CPU。
 
 Linux调度程序将遵循给定的CPU关联性，并且该进程将不会在任何其他CPU上运行。
 
-## 语法格式
+## 格式
 
 ```shell
 用法: taskset [options] [mask | cpu-list] [pid|cmd [args...]]
 ```
 
-## 常用参数
+## 参数
 
 ```shell
 -a --all-tasks		设置或获取给定PID的所有任务（线程）的CPU关联性
