@@ -34,7 +34,9 @@ count： 刷新次数，如果指定了刷新间隔，没有指定次数，将�
 -h：	   显示帮助信息
 ```
 
-## 默认模式
+## 实例
+
+### 默认模式
 
 ```shell
 [sgeapp@localhost ~]$ vmstat 1
@@ -77,7 +79,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 > 如果r值长期超过逻辑cpu核数，且id小于40，表示cpu负荷很重
 > 如果bi、bo长期不等于0表示内存不足
 
-## 磁盘模式
+### 查询磁盘统计信息
 
 ```shell
 [sgeapp@localhost ~]$ vmstat  -d 1
@@ -107,7 +109,7 @@ sr0        0      0       0       0      0      0       0       0      0      0
   - **cur**：I/O正在进行中
   - **sec**：IO的花费的秒数
 
-## 磁盘分区模式
+### 查看磁盘分区信息
 
 ```shell
 [sgeapp@localhost ~]$ vmstat -w -p sda 1
@@ -125,7 +127,7 @@ sda          reads   read sectors  writes    requested writes
 - **writes**：此分区的写入总数
 - **requested writes**：分区写入扇区总数
 
-## 磁盘总结信息
+### 查看磁盘总结信息
 
 ```shell
 [sgeapp@localhost ~]$ vmstat -D
@@ -143,7 +145,7 @@ sda          reads   read sectors  writes    requested writes
           208 milli spent IO
 ```
 
-## slab模式
+### 查看slab信息
 
 ```shell
 [root@localhost etc]# vmstat -w -m
@@ -162,7 +164,7 @@ xfs_dquot                     0      0    472     69
 - **size**：每个对象大小
 - **pages**：具有至少一个活动对象的页面数
 
-## 更多统计信息
+### 更多统计信息
 
 ```shell
 [root@localhost etc]# vmstat -s

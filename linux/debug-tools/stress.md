@@ -32,19 +32,19 @@
 
 ### 压测cpu
 
-```shell
+```elm
 stress	-c	1	
 ```
 
 ### 压测mem
 
-```
-
+```elm
+stress -m 1
 ```
 
 ### 压测磁盘、io
 
-```shell
+```elm
 stress -i 1 
 ```
 

@@ -25,6 +25,82 @@ top -hv|-bcHiOSs -d secs -n max -u|U user -p pid -o fld -w [cols]
 -i			 不现实任何闲置进程或者僵尸进程
 ```
 
+### **全局命令**
+
+```erlang
+f|F 选择要显示的内容
+	上下键选择字段，PgUp、PgDn快速切到第一个最后一个字段
+	右箭头键选择要重新定位的字段，然后选择左箭头键或<Enter>键将提交     该字段的位置
+	d键切换字段显示状态
+	s键指定排序字段，默认排序字段%CPU
+	a、w键可用于循环显示所有可用的字段
+	q、Esc退出
+A   显示模式切换，在全屏模式和普通模式之间进行切换
+B   关键字段粗体显示，x粗体竖向显示排序字段
+d|s 更改延迟时间间隔
+E   以KB MB GB等显示摘要MEM
+e   以KB MB GB等显示任务区
+g   选择另一个窗口/字段组1-4之间选择
+H   线程模式切换，将显示单个线程
+k   杀死进程，提示输入PID
+r   修改进程优先级，提示输入PID，然后在输入nice值
+Z   更改颜色
+z   带颜色显示
+```
+
+### **摘要区命令**
+
+```erlang
+C   显示滚动坐标切换
+l   平均负载/正常运行时间切换
+t   cpu状态显示方式切换
+m   内存swap显示方式切换
+1   监控每个逻辑CPU的状况
+```
+
+### **任务区命令**
+
+```erlang
+J   右对齐
+j   左对齐
+b   关键字段粗体显示
+x   高亮竖向显示排序字段
+y   行高亮显示
+z   彩色切换
+c   命令行/程序名切换
+f|F 字段显示管理
+U   仅显示特定用户
+V   类似树状显示布局
+i   空闲进程切换
+n   设置显示最大进程数
+```
+
+### **任务窗口排序**
+
+```erlang
+M   按照MEM排序
+N   按照PID排序
+P   按照CPU排序
+T   按照TIME+排序
+R   反向排序显示
+```
+
+## **Linux查看CPU个数**
+
+```shell
+# 总核数 = 物理CPU个数 X 每颗物理CPU的核数 
+# 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
+
+# 查看物理CPU个数
+cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
+
+# 查看每个物理CPU中core的个数(即核数)
+cat /proc/cpuinfo| grep "cpu cores"| uniq
+
+# 查看逻辑CPU的个数
+cat /proc/cpuinfo| grep "processor"| wc -l
+```
+
 ## 实例
 
 ![image-20200410171609305](..\..\images\image-20200410171609305.png)
@@ -76,78 +152,3 @@ TIME+      进程启动以来已使用的总CPU时间，单位1/100秒
 COMMAND    进程名称
 ```
 
-**全局命令**
-
-```erlang
-f|F 选择要显示的内容
-	上下键选择字段，PgUp、PgDn快速切到第一个最后一个字段
-	右箭头键选择要重新定位的字段，然后选择左箭头键或<Enter>键将提交     该字段的位置
-	d键切换字段显示状态
-	s键指定排序字段，默认排序字段%CPU
-	a、w键可用于循环显示所有可用的字段
-	q、Esc退出
-A   显示模式切换，在全屏模式和普通模式之间进行切换
-B   关键字段粗体显示，x粗体竖向显示排序字段
-d|s 更改延迟时间间隔
-E   以KB MB GB等显示摘要MEM
-e   以KB MB GB等显示任务区
-g   选择另一个窗口/字段组1-4之间选择
-H   线程模式切换，将显示单个线程
-k   杀死进程，提示输入PID
-r   修改进程优先级，提示输入PID，然后在输入nice值
-Z   更改颜色
-z   带颜色显示
-```
-
-**摘要区命令**
-
-```erlang
-C   显示滚动坐标切换
-l   平均负载/正常运行时间切换
-t   cpu状态显示方式切换
-m   内存swap显示方式切换
-1   监控每个逻辑CPU的状况
-```
-
-**任务区命令**
-
-```erlang
-J   右对齐
-j   左对齐
-b   关键字段粗体显示
-x   高亮竖向显示排序字段
-y   行高亮显示
-z   彩色切换
-c   命令行/程序名切换
-f|F 字段显示管理
-U   仅显示特定用户
-V   类似树状显示布局
-i   空闲进程切换
-n   设置显示最大进程数
-```
-
-**任务窗口排序**
-
-```erlang
-M   按照MEM排序
-N   按照PID排序
-P   按照CPU排序
-T   按照TIME+排序
-R   反向排序显示
-```
-
-**Linux查看物理CPU个数、核数、逻辑CPU个数**
-
-```shell
-# 总核数 = 物理CPU个数 X 每颗物理CPU的核数 
-# 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
-
-# 查看物理CPU个数
-cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
-
-# 查看每个物理CPU中core的个数(即核数)
-cat /proc/cpuinfo| grep "cpu cores"| uniq
-
-# 查看逻辑CPU的个数
-cat /proc/cpuinfo| grep "processor"| wc -l
-```

@@ -31,7 +31,9 @@ count		采样的次数
 
 ## 实例
 
-```shell
+### 查看总的cpu使用率
+
+```elm
 [sgeapp@localhost ~]$ mpstat -u 1
 Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月16日 	_x86_64_	(1 CPU)
 
@@ -56,3 +58,50 @@ Linux 3.10.0-514.el7.x86_64 (localhost.localdomain) 	2020年04月16日 	_x86_64_
 - **%guest**  显示CPU或cpu运行虚拟处理器所花费的时间百分比。  
 - **%gince**  显示一个或多个CPU运行一个好的guest虚拟机所花费的时间百分比  
 - **%idle**  显示CPU或CPU空闲的时间百分比，并且系统没有未执行的磁盘I/O请求。
+
+### 查看单个cpu使用率
+
+```elm
+[root@fanqq fanqq]# mpstat -P ALL 1
+Linux 3.10.0-957.21.3.el7.x86_64 (fanqq) 	05/03/2020 	_x86_64_	(2 CPU)
+
+03:31:37 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+03:31:38 PM  all    0.50    0.00    0.50    0.00    0.00    0.00    0.00    0.00    0.00   98.99
+03:31:38 PM    0    1.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.00
+03:31:38 PM    1    0.00    0.00    1.00    0.00    0.00    0.00    0.00    0.00    0.00   99.00
+```
+
+### 查看cpu总中断数
+
+```elm
+[root@fanqq fanqq]# mpstat -I SUM 1
+Linux 3.10.0-957.21.3.el7.x86_64 (fanqq) 	05/03/2020 	_x86_64_	(2 CPU)
+
+03:35:27 PM  CPU    intr/s
+03:35:28 PM  all    770.30
+03:35:29 PM  all    665.00
+03:35:30 PM  all    714.00
+```
+
+### 查看每个cpu硬中断数
+
+```elm
+[root@fanqq fanqq]# mpstat -I CPU 
+Linux 3.10.0-957.21.3.el7.x86_64 (fanqq) 	05/03/2020 	_x86_64_	(2 CPU)
+
+03:36:51 PM  CPU        0/s        1/s        4/s        6/s        8/s        9/s       11/s       12/s       14/s       15/s       24/s       25/s       26/s       27/s       28/s       29/s       30/s      NMI/s      LOC/s      SPU/s      PMI/s      IWI/s      RTR/s      RES/s      CAL/s      TLB/s      TRM/s      THR/s      DFR/s      MCE/s      MCP/s      ERR/s      MIS/s      PIN/s      NPI/s      PIW/s
+03:36:51 PM    0       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.25       0.00       0.00       0.00       0.63       0.00       0.00     160.89       0.00       0.00       2.98       0.00      43.20       0.00       0.05       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00
+03:36:51 PM    1       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00     161.31       0.00       0.00       2.86       0.00      41.99       0.00       0.05       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00
+```
+
+### 查看每个cpu软中断数
+
+```elm
+[root@fanqq fanqq]# mpstat -I SCPU 
+Linux 3.10.0-957.21.3.el7.x86_64 (fanqq) 	05/03/2020 	_x86_64_	(2 CPU)
+
+03:38:40 PM  CPU       HI/s    TIMER/s   NET_TX/s   NET_RX/s    BLOCK/s BLOCK_IOPOLL/s  TASKLET/s    SCHED/s  HRTIMER/s      RCU/s
+03:38:40 PM    0       0.00      29.21       0.00       0.73       0.00       0.00       0.00      17.12       0.00      13.76
+03:38:40 PM    1       0.00      29.14       0.00       0.06       0.00       0.00       0.00      16.94       0.00      13.47
+```
+

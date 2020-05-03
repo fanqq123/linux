@@ -24,4 +24,28 @@ Linux调度程序将遵循给定的CPU关联性，并且该进程将不会在任
 
 ## 实例
 
-### 
+### 查询线程可用cpu
+
+```elm
+[root@fanqq fanqq]# taskset -pc 1
+pid 1's current affinity list: 0,1
+```
+
+> 上述命令的结果表示PID为1的进程可以被安排在0和1这两个cpu上运行
+
+### 设置线程的可用cpu
+
+```elm
+[root@fanqq fanqq]# taskset -pc 0 1
+pid 1's current affinity list: 0,1
+pid 1's new affinity list: 0
+```
+
+### 查线程运行在那个cpu上
+
+```elm
+[root@localhost mybook]# ps -o pid,psr -p 1
+   PID PSR
+     1   0
+```
+
