@@ -1,4 +1,4 @@
-# vmstat
+#  vmstat
 
 vmstat虚拟内存统计，报告有关进程，内存，页面调度，块IO，磁盘和cpu等活动
 
